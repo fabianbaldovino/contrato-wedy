@@ -322,120 +322,6 @@
             font-weight: 600;
             margin-bottom: 10px;
         }
-
-        .error-message {
-            color: #e74c3c;
-            font-size: 13px;
-            margin-top: 5px;
-            display: none;
-        }
-
-        .form-group.error input,
-        .form-group.error select {
-            border-color: #e74c3c;
-        }
-
-        .form-group.error .error-message {
-            display: block;
-        }
-
-        /* Modal Styles */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 1000;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .modal-overlay.active {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .modal-content {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            max-width: 500px;
-            width: 100%;
-            text-align: center;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            animation: slideUp 0.3s ease;
-            position: relative;
-        }
-
-        .modal-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-        }
-
-        .modal-icon svg {
-            width: 45px;
-            height: 45px;
-        }
-
-        .modal-content h2 {
-            color: #667eea;
-            font-size: 28px;
-            margin-bottom: 15px;
-        }
-
-        .modal-content p {
-            color: #666;
-            font-size: 16px;
-            line-height: 1.6;
-            margin-bottom: 30px;
-        }
-
-        .modal-btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 14px 40px;
-            border-radius: 10px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .modal-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideUp {
-            from {
-                transform: translateY(30px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
     </style>
 </head>
 <body>
@@ -523,13 +409,11 @@
 
         <!-- FORMULÁRIO -->
         <div class="form-content">
-            <form id="contratoForm" action="https://formsubmit.co/fbpaciel@gmail.com" method="POST" enctype="multipart/form-data">
+            <form action="https://formsubmit.co/fbpaciel@gmail.com" method="POST" enctype="multipart/form-data">
                 <!-- FormSubmit Configuration -->
                 <input type="hidden" name="_subject" value="Novo Contrato de Microinfluenciador - Wedy Nutrition">
                 <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_template" value="table">
-                <input type="hidden" name="_next" value="#success">
-                <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+                <input type="text" name="_honey" style="display:none">
                 
                 <div class="info-box">
                     <strong>📋 Instruções:</strong> Preencha todos os campos obrigatórios marcados com <span class="required">*</span>. Ao finalizar, clique em "Enviar Contrato" e suas informações serão enviadas para análise.
@@ -547,8 +431,7 @@
                     <div class="row">
                         <div class="form-group">
                             <label>CPF <span class="required">*</span></label>
-                            <input type="text" name="cpf" id="cpf" placeholder="000.000.000-00" required>
-                            <span class="error-message">CPF inválido</span>
+                            <input type="text" name="cpf" placeholder="000.000.000-00" required>
                         </div>
                         <div class="form-group">
                             <label>RG</label>
@@ -563,7 +446,7 @@
                         </div>
                         <div class="form-group">
                             <label>Telefone/WhatsApp <span class="required">*</span></label>
-                            <input type="tel" name="telefone" id="telefone" placeholder="(00) 00000-0000" required>
+                            <input type="tel" name="telefone" placeholder="(00) 00000-0000" required>
                         </div>
                     </div>
                     
@@ -579,22 +462,22 @@
                     
                     <div class="form-group">
                         <label>CEP <span class="required">*</span></label>
-                        <input type="text" name="cep" id="cep" placeholder="00000-000" required>
+                        <input type="text" name="cep" placeholder="00000-000" required>
                     </div>
                     
                     <div class="form-group">
                         <label>Endereço Completo <span class="required">*</span></label>
-                        <input type="text" name="endereco" id="endereco" placeholder="Rua, número, complemento" required>
+                        <input type="text" name="endereco" placeholder="Rua, número, complemento" required>
                     </div>
                     
                     <div class="row">
                         <div class="form-group">
                             <label>Bairro <span class="required">*</span></label>
-                            <input type="text" name="bairro" id="bairro" required>
+                            <input type="text" name="bairro" required>
                         </div>
                         <div class="form-group">
                             <label>Cidade <span class="required">*</span></label>
-                            <input type="text" name="cidade" id="cidade" required>
+                            <input type="text" name="cidade" required>
                         </div>
                     </div>
                     
@@ -702,7 +585,7 @@
                     
                     <div class="form-group">
                         <label>CNPJ (se possuir)</label>
-                        <input type="text" name="cnpj" id="cnpj" placeholder="00.000.000/0001-00">
+                        <input type="text" name="cnpj" placeholder="00.000.000/0001-00">
                     </div>
                 </div>
 
@@ -715,3 +598,68 @@
                     </div>
                     
                     <div class="form-group">
+                        <div class="file-upload">
+                            <input type="file" name="documento" id="documento" accept="image/*,.pdf" required>
+                            <label for="documento" class="file-upload-label">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="17 8 12 3 7 8"></polyline>
+                                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                                </svg>
+                                <span id="file-name">Clique para escolher o arquivo</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Declaração e Aceite -->
+                <div class="section">
+                    <h2 class="section-title">Declaração e Aceite</h2>
+                    
+                    <div class="form-group">
+                        <label>Data de Assinatura <span class="required">*</span></label>
+                        <input type="date" name="data_assinatura" required>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" name="aceite_contrato" id="aceite" required>
+                        <label for="aceite">
+                            Declaro que li e compreendi todas as cláusulas do Contrato de Colaboração Publicitária com a Wedy Nutrition apresentadas acima, estando ciente de minhas obrigações e responsabilidades. Concordo com todos os termos estabelecidos. <span class="required">*</span>
+                        </label>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" name="aceite_imagem" id="aceite_imagem" required>
+                        <label for="aceite_imagem">
+                            Autorizo a cessão de direitos de imagem, voz e conteúdo à Wedy Nutrition, conforme estabelecido na Cláusula 2 do contrato acima. <span class="required">*</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Observações -->
+                <div class="section">
+                    <div class="form-group">
+                        <label>Observações ou Dúvidas (opcional)</label>
+                        <textarea name="observacoes" placeholder="Escreva aqui caso tenha alguma observação ou dúvida sobre o contrato..."></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">📤 Aceitar Contrato e Enviar</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Update file name display
+        document.getElementById('documento').addEventListener('change', function(e) {
+            const fileName = e.target.files[0]?.name || 'Clique para escolher o arquivo';
+            document.getElementById('file-name').textContent = fileName;
+        });
+        
+        // Auto-format CPF
+        document.querySelector('input[name="cpf"]').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length <= 11) {
+                value = value.replace(/(\d{3})(\d)/, '$1.$2');
+                value = value.replace(/(\d{3})(\d)/, '$1.$2');
+                value = value.replace(/(\d{3})(\d{1,2})$/, '$1
