@@ -338,6 +338,104 @@
         .form-group.error .error-message {
             display: block;
         }
+
+        /* Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.3s ease;
+            position: relative;
+        }
+
+        .modal-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+        }
+
+        .modal-icon svg {
+            width: 45px;
+            height: 45px;
+        }
+
+        .modal-content h2 {
+            color: #667eea;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .modal-content p {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .modal-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 14px 40px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .modal-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 <body>
@@ -430,6 +528,7 @@
                 <input type="hidden" name="_subject" value="Novo Contrato de Microinfluenciador - Wedy Nutrition">
                 <input type="hidden" name="_captcha" value="false">
                 <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_next" value="#success">
                 <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
                 
                 <div class="info-box">
@@ -616,173 +715,3 @@
                     </div>
                     
                     <div class="form-group">
-                        <div class="file-upload">
-                            <input type="file" name="attachment" id="documento" accept="image/*,.pdf" required>
-                            <label for="documento" class="file-upload-label">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2">
-                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                                    <polyline points="17 8 12 3 7 8"></polyline>
-                                    <line x1="12" y1="3" x2="12" y2="15"></line>
-                                </svg>
-                                <span id="file-name">Clique para escolher o arquivo</span>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Declaração e Aceite -->
-                <div class="section">
-                    <h2 class="section-title">Declaração e Aceite</h2>
-                    
-                    <div class="form-group">
-                        <label>Data de Assinatura <span class="required">*</span></label>
-                        <input type="date" name="data_assinatura" required>
-                    </div>
-                    
-                    <div class="checkbox-group">
-                        <input type="checkbox" name="aceite_contrato" id="aceite" value="Sim" required>
-                        <label for="aceite">
-                            Declaro que li e compreendi todas as cláusulas do Contrato de Colaboração Publicitária com a Wedy Nutrition apresentadas acima, estando ciente de minhas obrigações e responsabilidades. Concordo com todos os termos estabelecidos. <span class="required">*</span>
-                        </label>
-                    </div>
-                    
-                    <div class="checkbox-group">
-                        <input type="checkbox" name="aceite_imagem" id="aceite_imagem" value="Sim" required>
-                        <label for="aceite_imagem">
-                            Autorizo a cessão de direitos de imagem, voz e conteúdo à Wedy Nutrition, conforme estabelecido na Cláusula 2 do contrato acima. <span class="required">*</span>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Observações -->
-                <div class="section">
-                    <div class="form-group">
-                        <label>Observações ou Dúvidas (opcional)</label>
-                        <textarea name="observacoes" placeholder="Escreva aqui caso tenha alguma observação ou dúvida sobre o contrato..."></textarea>
-                    </div>
-                </div>
-
-                <button type="submit" class="submit-btn">📤 Aceitar Contrato e Enviar</button>
-            </form>
-        </div>
-    </div>
-
-    <script>
-        // Update file name display
-        document.getElementById('documento').addEventListener('change', function(e) {
-            const fileName = e.target.files[0]?.name || 'Clique para escolher o arquivo';
-            document.getElementById('file-name').textContent = fileName;
-        });
-        
-        // Auto-format CPF
-        document.getElementById('cpf').addEventListener('input', function(e) {
-            let value = e.target.value.replace(/\D/g, '');
-            if (value.length <= 11) {
-                value = value.replace(/(\d{3})(\d)/, '$1.$2');
-                value = value.replace(/(\d{3})(\d)/, '$1.$2');
-                value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
-            }
-            e.target.value = value;
-        });
-
-        // Validate CPF
-        function validarCPF(cpf) {
-            cpf = cpf.replace(/\D/g, '');
-            if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) return false;
-            
-            let soma = 0;
-            for (let i = 0; i < 9; i++) {
-                soma += parseInt(cpf.charAt(i)) * (10 - i);
-            }
-            let resto = 11 - (soma % 11);
-            let digito1 = resto >= 10 ? 0 : resto;
-            
-            soma = 0;
-            for (let i = 0; i < 10; i++) {
-                soma += parseInt(cpf.charAt(i)) * (11 - i);
-            }
-            resto = 11 - (soma % 11);
-            let digito2 = resto >= 10 ? 0 : resto;
-            
-            return parseInt(cpf.charAt(9)) === digito1 && parseInt(cpf.charAt(10)) === digito2;
-        }
-
-        document.getElementById('cpf').addEventListener('blur', function(e) {
-            const formGroup = e.target.closest('.form-group');
-            if (e.target.value && !validarCPF(e.target.value)) {
-                formGroup.classList.add('error');
-            } else {
-                formGroup.classList.remove('error');
-            }
-        });
-        
-        // Auto-format Telefone
-        document.getElementById('telefone').addEventListener('input', function(e) {
-            let value = e.target.value.replace(/\D/g, '');
-            if (value.length <= 11) {
-                value = value.replace(/^(\d{2})(\d)/g, '($1) $2');
-                value = value.replace(/(\d)(\d{4})$/, '$1-$2');
-            }
-            e.target.value = value;
-        });
-        
-        // Auto-format CEP
-        document.getElementById('cep').addEventListener('input', function(e) {
-            let value = e.target.value.replace(/\D/g, '');
-            if (value.length <= 8) {
-                value = value.replace(/^(\d{5})(\d)/, '$1-$2');
-            }
-            e.target.value = value;
-        });
-
-        // Buscar CEP
-        document.getElementById('cep').addEventListener('blur', function(e) {
-            const cep = e.target.value.replace(/\D/g, '');
-            if (cep.length === 8) {
-                fetch(`https://viacep.com.br/ws/${cep}/json/`)
-                    .then(response => response.json())
-                    .then(data => {
-                        if (!data.erro) {
-                            document.getElementById('endereco').value = data.logradouro;
-                            document.getElementById('bairro').value = data.bairro;
-                            document.getElementById('cidade').value = data.localidade;
-                            document.getElementById('estado').value = data.uf;
-                        }
-                    })
-                    .catch(error => console.log('Erro ao buscar CEP:', error));
-            }
-        });
-        
-        // Auto-format CNPJ
-        const cnpjInput = document.getElementById('cnpj');
-        if (cnpjInput) {
-            cnpjInput.addEventListener('input', function(e) {
-                let value = e.target.value.replace(/\D/g, '');
-                if (value.length <= 14) {
-                    value = value.replace(/^(\d{2})(\d)/, '$1.$2');
-                    value = value.replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3');
-                    value = value.replace(/\.(\d{3})(\d)/, '.$1/$2');
-                    value = value.replace(/(\d{4})(\d)/, '$1-$2');
-                }
-                e.target.value = value;
-            });
-        }
-
-        // Form validation
-        document.getElementById('contratoForm').addEventListener('submit', function(e) {
-            const cpfInput = document.getElementById('cpf');
-            if (!validarCPF(cpfInput.value)) {
-                e.preventDefault();
-                cpfInput.closest('.form-group').classList.add('error');
-                cpfInput.focus();
-                alert('Por favor, insira um CPF válido.');
-                return false;
-            }
-        });
-
-        // Set default date to today
-        const hoje = new Date().toISOString().split('T')[0];
-        document.querySelector('input[name="data_assinatura"]').value = hoje;
-    </script>
-</body>
-</html>
