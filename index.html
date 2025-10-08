@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contrato Microinfluenciador - Wedy Nutrition</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .contract-content {
+            padding: 40px;
+            background: #f9f9f9;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .contract-content h2 {
+            color: #667eea;
+            font-size: 22px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .contract-content h2:first-child {
+            margin-top: 0;
+        }
+        
+        .contract-content h3 {
+            color: #764ba2;
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .contract-content p {
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+        
+        .contract-content ul {
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .contract-content li {
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        
+        .contract-box {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .company-info {
+            background: #eef0ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+        }
+        
+        .company-info strong {
+            color: #667eea;
+        }
+        
+        .form-content {
+            padding: 40px 30px;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+            font-weight: 600;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        
+        .required {
+            color: #e74c3c;
+            margin-left: 3px;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+        
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="date"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .file-upload {
+            position: relative;
+        }
+        
+        .file-upload input[type="file"] {
+            display: none;
+        }
+        
+        .file-upload-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            border: 2px dashed #667eea;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: #f8f9ff;
+        }
+        
+        .file-upload-label:hover {
+            background: #eef0ff;
+            border-color: #764ba2;
+        }
+        
+        .file-upload-label svg {
+            margin-right: 10px;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            margin-top: 15px;
+            padding: 15px;
+            background: #f8f9ff;
+            border-radius: 8px;
+            border: 2px solid #667eea;
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            margin-top: 3px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        
+        .checkbox-group label {
+            margin-bottom: 0;
+            cursor: pointer;
+            font-weight: normal;
+            line-height: 1.6;
+        }
+        
+        .info-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #856404;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            margin-top: 20px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+        
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        @media (max-width: 600px) {
+            .row {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 24px;
+            }
+            
+            .form-content, .contract-content {
+                padding: 30px 20px;
+            }
+        }
+        
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+        }
+        
+        .radio-option {
+            display: flex;
+            align-items: center;
+        }
+        
+        .radio-option input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            margin-right: 8px;
+            cursor: pointer;
+        }
+        
+        .radio-option label {
+            margin-bottom: 0;
+            cursor: pointer;
+            font-weight: normal;
+        }
+        
+        .scroll-indicator {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9ff;
+            border-top: 2px solid #667eea;
+        }
+        
+        .scroll-indicator p {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-size: 13px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .form-group.error input,
+        .form-group.error select {
+            border-color: #e74c3c;
+        }
+
+        .form-group.error .error-message {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Contrato de Colaboração Publicitária</h1>
+            <p>Microinfluenciador - Wedy Nutrition</p>
+        </div>
+        
+        <!-- CONTRATO COMPLETO -->
+        <div class="contract-content">
+            <div class="info-box">
+                <strong>⚠️ IMPORTANTE:</strong> Leia atentamente todas as cláusulas do contrato abaixo antes de preencher o formulário. Ao enviar, você estará concordando com todos os termos descritos.
+            </div>
+            
+            <div class="company-info">
+                <p><strong>CONTRATANTE:</strong> Wedy Nutrition</p>
+                <p><strong>CNPJ:</strong> 08.966.074/0001-99</p>
+                <p><strong>Representante Legal:</strong> Ricardo da Silva Wedy (Diretor)</p>
+            </div>
+
+            <h2>Cláusula 1 - Objeto do Contrato</h2>
+            <div class="contract-box">
+                <p><strong>1.1</strong> O presente contrato tem como objeto a colaboração publicitária entre as partes, com a finalidade de promover os produtos da Wedy Nutrition, por meio de publicações nas redes sociais do Microinfluenciador, nos termos estabelecidos neste instrumento.</p>
+                
+                <p><strong>1.2</strong> O Microinfluenciador compromete-se a realizar as seguintes ações em suas redes sociais:</p>
+                <ul>
+                    <li>Publicar 3 (três) stories por semana no Instagram, marcando o perfil @WedyNutrition.</li>
+                    <li>Caso o Microinfluenciador seja residente de Porto Alegre, RS, deverá também marcar os perfis @FabricaDeSuplementosAssisBrasil e @FabricaDeSuplementosIndependencia.</li>
+                    <li>Publicar um vídeo no feed do Instagram falando sobre um ou mais produtos da esteira de produtos da Wedy Nutrition, com menção à colaboração.</li>
+                </ul>
+                
+                <p><strong>1.3</strong> Caso o Microinfluenciador seja residente de Porto Alegre, RS, poderá contar com apoio logístico para a produção e pós-produção audiovisual do conteúdo, sendo este material elaborado em colaboração com a Wedy Nutrition ou sugerido pelo influenciador.</p>
+                
+                <p><strong>1.4</strong> Para os Microinfluenciadores residentes em outros estados, o conteúdo do feed deverá ser enviado para curadoria, via WhatsApp, onde poderá ser solicitado ajuste ou refação do material, incluindo inserção de elementos gráficos e criação de capa para o vídeo.</p>
+            </div>
+
+            <h2>Cláusula 2 - Direitos de Imagem e Propriedade Intelectual</h2>
+            <div class="contract-box">
+                <p><strong>2.1</strong> O Microinfluenciador cede à Wedy Nutrition, de forma não exclusiva, os direitos de uso de sua imagem, voz e conteúdo publicado nas redes sociais, para fins de divulgação, promoção e comercialização dos produtos da marca, por prazo de 12 (doze) meses, podendo ser renovado automaticamente.</p>
+                
+                <p><strong>2.2</strong> A Wedy Nutrition terá o direito de reproduzir, adaptar e impulsionar o conteúdo criado pelo Microinfluenciador, sem a necessidade de remuneração adicional, para os fins previstos neste contrato.</p>
+                
+                <p><strong>2.3</strong> O Microinfluenciador compromete-se a não utilizar a marca Wedy Nutrition de maneira que possa prejudicar a reputação da empresa, ficando proibido de fazer publicações que envolvam conteúdos ofensivos, discriminatórios ou que possam desabonar a imagem da Wedy Nutrition.</p>
+            </div>
+
+            <h2>Cláusula 3 - Responsabilidades das Partes</h2>
+            <div class="contract-box">
+                <p><strong>3.1</strong> O Microinfluenciador declara que todo o conteúdo publicado será de sua autoria, e que não infringirá direitos de terceiros, incluindo direitos autorais, marcas e patentes.</p>
+                
+                <p><strong>3.2</strong> A Wedy Nutrition não se responsabiliza por qualquer conteúdo criado pelo Microinfluenciador fora do escopo deste contrato, sendo exclusivamente responsável pelo material previamente acordado e curado pela equipe de marketing.</p>
+            </div>
+
+            <h2>Cláusula 4 - Contrapartida e Remuneração</h2>
+            <div class="contract-box">
+                <p><strong>4.1</strong> Como contrapartida, o Microinfluenciador receberá um kit de produtos da Wedy Nutrition, composto por produtos da esteira de suplementos da marca, conforme estabelecido pela Wedy Nutrition.</p>
+                
+                <p><strong>4.2</strong> Além do kit, o Microinfluenciador terá direito a um código de cupom de 5% de desconto, que poderá ser compartilhado com seu público para compras realizadas nas lojas físicas da Fábrica de Suplementos ou no site oficial da Wedy Nutrition.</p>
+                
+                <p><strong>4.3</strong> O Microinfluenciador receberá 5% do valor das vendas realizadas através do uso do seu código de cupom, em produtos da Wedy Nutrition, que poderão ser retirados no mês seguinte à comprovação das vendas, conforme relatórios fornecidos pela Wedy Nutrition.</p>
+            </div>
+
+            <h2>Cláusula 5 - Prazo e Rescisão</h2>
+            <div class="contract-box">
+                <p><strong>5.1</strong> Este contrato tem início na data de assinatura e vigência de 3 (três) meses, podendo ser renovado automaticamente por igual período, salvo manifestação contrária de qualquer das partes.</p>
+                
+                <p><strong>5.2</strong> O contrato poderá ser rescindido a qualquer momento por ambas as partes, mediante aviso prévio de 15 (quinze) dias.</p>
+                
+                <p><strong>5.3</strong> Em caso de descumprimento de qualquer cláusula deste contrato, a parte prejudicada poderá rescindir imediatamente o contrato, sem prejuízo das ações cabíveis.</p>
+            </div>
+
+            <h2>Cláusula 6 - Disposições Finais</h2>
+            <div class="contract-box">
+                <p><strong>6.1</strong> Fica eleito o foro da comarca de Porto Alegre, RS, para dirimir quaisquer controvérsias oriundas deste contrato.</p>
+                
+                <p><strong>6.2</strong> O Microinfluenciador declara que leu e compreendeu todas as cláusulas deste contrato, estando ciente de suas obrigações e responsabilidades.</p>
+                
+                <p><strong>6.3</strong> Este contrato poderá ser alterado mediante acordo mútuo entre as partes, por meio de termo aditivo escrito e assinado por ambas.</p>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <p>👇 Preencha o formulário abaixo para aceitar o contrato</p>
+        </div>
+
+        <!-- FORMULÁRIO -->
+        <div class="form-content">
+            <form id="contratoForm" action="https://formsubmit.co/fbpaciel@gmail.com" method="POST" enctype="multipart/form-data">
+                <!-- FormSubmit Configuration -->
+                <input type="hidden" name="_subject" value="Novo Contrato de Microinfluenciador - Wedy Nutrition">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_next" value="https://wedynutrition.com.br/obrigado.html">
+                <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+                
+                <div class="info-box">
+                    <strong>📋 Instruções:</strong> Preencha todos os campos obrigatórios marcados com <span class="required">*</span>. Ao finalizar, clique em "Enviar Contrato" e suas informações serão enviadas para análise.
+                </div>
+
+                <!-- Dados Pessoais -->
+                <div class="section">
+                    <h2 class="section-title">Dados Pessoais</h2>
+                    
+                    <div class="form-group">
+                        <label>Nome Completo <span class="required">*</span></label>
+                        <input type="text" name="nome_completo" required>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="form-group">
+                            <label>CPF <span class="required">*</span></label>
+                            <input type="text" name="cpf" id="cpf" placeholder="000.000.000-00" required>
+                            <span class="error-message">CPF inválido</span>
+                        </div>
+                        <div class="form-group">
+                            <label>RG</label>
+                            <input type="text" name="rg">
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="form-group">
+                            <label>Data de Nascimento <span class="required">*</span></label>
+                            <input type="date" name="data_nascimento" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Telefone/WhatsApp <span class="required">*</span></label>
+                            <input type="tel" name="telefone" id="telefone" placeholder="(00) 00000-0000" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>E-mail <span class="required">*</span></label>
+                        <input type="email" name="email" required>
+                    </div>
+                </div>
+
+                <!-- Endereço -->
+                <div class="section">
+                    <h2 class="section-title">Endereço</h2>
+                    
+                    <div class="form-group">
+                        <label>CEP <span class="required">*</span></label>
+                        <input type="text" name="cep" id="cep" placeholder="00000-000" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Endereço Completo <span class="required">*</span></label>
+                        <input type="text" name="endereco" id="endereco" placeholder="Rua, número, complemento" required>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="form-group">
+                            <label>Bairro <span class="required">*</span></label>
+                            <input type="text" name="bairro" id="bairro" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Cidade <span class="required">*</span></label>
+                            <input type="text" name="cidade" id="cidade" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Estado <span class="required">*</span></label>
+                        <select name="estado" id="estado" required>
+                            <option value="">Selecione</option>
+                            <option value="AC">Acre</option>
+                            <option value="AL">Alagoas</option>
+                            <option value="AP">Amapá</option>
+                            <option value="AM">Amazonas</option>
+                            <option value="BA">Bahia</option>
+                            <option value="CE">Ceará</option>
+                            <option value="DF">Distrito Federal</option>
+                            <option value="ES">Espírito Santo</option>
+                            <option value="GO">Goiás</option>
+                            <option value="MA">Maranhão</option>
+                            <option value="MT">Mato Grosso</option>
+                            <option value="MS">Mato Grosso do Sul</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="PA">Pará</option>
+                            <option value="PB">Paraíba</option>
+                            <option value="PR">Paraná</option>
+                            <option value="PE">Pernambuco</option>
+                            <option value="PI">Piauí</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="RN">Rio Grande do Norte</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="RO">Rondônia</option>
+                            <option value="RR">Roraima</option>
+                            <option value="SC">Santa Catarina</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="SE">Sergipe</option>
+                            <option value="TO">Tocantins</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Você é residente de Porto Alegre/RS? <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" name="residente_poa" id="poa_sim" value="Sim" required>
+                                <label for="poa_sim">Sim</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="residente_poa" id="poa_nao" value="Não" required>
+                                <label for="poa_nao">Não</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Redes Sociais -->
+                <div class="section">
+                    <h2 class="section-title">Redes Sociais</h2>
+                    
+                    <div class="form-group">
+                        <label>Instagram (usuário) <span class="required">*</span></label>
+                        <input type="text" name="instagram" placeholder="@seuperfil" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Número de Seguidores no Instagram <span class="required">*</span></label>
+                        <input type="text" name="seguidores" placeholder="Ex: 5.000" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>TikTok (se tiver)</label>
+                        <input type="text" name="tiktok" placeholder="@seuperfil">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>YouTube (se tiver)</label>
+                        <input type="text" name="youtube" placeholder="Canal">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Outras Redes Sociais Relevantes</label>
+                        <textarea name="outras_redes" placeholder="Ex: Facebook, Twitter, etc."></textarea>
+                    </div>
+                </div>
+
+                <!-- Informações Profissionais -->
+                <div class="section">
+                    <h2 class="section-title">Informações Profissionais</h2>
+                    
+                    <div class="form-group">
+                        <label>Nicho de Conteúdo <span class="required">*</span></label>
+                        <input type="text" name="nicho" placeholder="Ex: Fitness, Saúde, Lifestyle" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Você possui CNPJ?</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" name="possui_cnpj" id="cnpj_sim" value="Sim">
+                                <label for="cnpj_sim">Sim</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" name="possui_cnpj" id="cnpj_nao" value="Não">
+                                <label for="cnpj_nao">Não</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>CNPJ (se possuir)</label>
+                        <input type="text" name="cnpj" id="cnpj" placeholder="00.000.000/0001-00">
+                    </div>
+                </div>
+
+                <!-- Upload de Documento -->
+                <div class="section">
+                    <h2 class="section-title">Documento de Identidade</h2>
+                    
+                    <div class="info-box">
+                        <strong>📄 Documentos aceitos:</strong> RG, CNH ou documento em PDF (frente e verso, se aplicável). Tamanho máximo: 10MB.
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="file-upload">
+                            <input type="file" name="attachment" id="documento" accept="image/*,.pdf" required>
+                            <label for="documento" class="file-upload-label">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#667eea" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="17 8 12 3 7 8"></polyline>
+                                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                                </svg>
+                                <span id="file-name">Clique para escolher o arquivo</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Declaração e Aceite -->
+                <div class="section">
+                    <h2 class="section-title">Declaração e Aceite</h2>
+                    
+                    <div class="form-group">
+                        <label>Data de Assinatura <span class="required">*</span></label>
+                        <input type="date" name="data_assinatura" required>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" name="aceite_contrato" id="aceite" value="Sim" required>
+                        <label for="aceite">
+                            Declaro que li e compreendi todas as cláusulas do Contrato de Colaboração Publicitária com a Wedy Nutrition apresentadas acima, estando ciente de minhas obrigações e responsabilidades. Concordo com todos os termos estabelecidos. <span class="required">*</span>
+                        </label>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" name="aceite_imagem" id="aceite_imagem" value="Sim" required>
+                        <label for="aceite_imagem">
+                            Autorizo a cessão de direitos de imagem, voz e conteúdo à Wedy Nutrition, conforme estabelecido na Cláusula 2 do contrato acima. <span class="required">*</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Observações -->
+                <div class="section">
+                    <div class="form-group">
+                        <label>Observações ou Dúvidas (opcional)</label>
+                        <textarea name="observacoes" placeholder="Escreva aqui caso tenha alguma observação ou dúvida sobre o contrato..."></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">📤 Aceitar Contrato e Enviar</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Update file name display
+        document.getElementById('documento').addEventListener('change', function(e) {
+            const fileName = e.target.files[0]?.name || 'Clique para escolher o arquivo';
+            document.getElementById('file-name').textContent = fileName;
+        });
+        
+        // Auto-format CPF
+        document.getElementById('cpf').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length <= 11) {
+                value = value.replace(/(\d{3})(\d)/, '$1.$2');
+                value = value.replace(/(\d{3})(\d)/, '$1.$2');
+                value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+            }
+            e.target.value = value;
+        });
+
+        // Validate CPF
+        function validarCPF(cpf) {
+            cpf = cpf.replace(/\D/g, '');
+            if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) return false;
+            
+            let soma = 0;
+            for (let i = 0; i < 9; i++) {
+                soma += parseInt(cpf.charAt(i)) * (10 - i);
+            }
+            let resto = 11 - (soma % 11);
+            let digito1 = resto >= 10 ? 0 : resto;
+            
+            soma = 0;
+            for (let i = 0; i < 10; i++) {
+                soma += parseInt(cpf.charAt(i)) * (11 - i);
+            }
+            resto = 11 - (soma % 11);
+            let digito2 = resto >= 10 ? 0 : resto;
+            
+            return parseInt(cpf.charAt(9)) === digito1 && parseInt(cpf.charAt(10)) === digito2;
+        }
+
+        document.getElementById('cpf').addEventListener('blur', function(e) {
+            const formGroup = e.target.closest('.form-group');
+            if (e.target.value && !validarCPF(e.target.value)) {
+                formGroup.classList.add('error');
+            } else {
+                formGroup.classList.remove('error');
+            }
+        });
+        
+        // Auto-format Telefone
+        document.getElementById('telefone').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length <= 11) {
+                value = value.replace(/^(\d{2})(\d)/g, '($1) $2');
+                value = value.replace(/(\d)(\d{4})$/, '$1-$2');
+            }
+            e.target.value = value;
+        });
+        
+        // Auto-format CEP
+        document.getElementById('cep').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length <= 8) {
+                value = value.replace(/^(\d{5})(\d)/, '$1-$2');
+            }
+            e.target.value = value;
+        });
+
+        // Buscar CEP
+        document.getElementById('cep').addEventListener('blur', function(e) {
+            const cep = e.target.value.replace(/\D/g, '');
+            if (cep.length === 8) {
+                fetch(`https://viacep.com.br/ws/${cep}/json/`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (!data.erro) {
+                            document.getElementById('endereco').value = data.logradouro;
+                            document.getElementById('bairro').value = data.bairro;
+                            document.getElementById('cidade').value = data.localidade;
+                            document.getElementById('estado').value = data.uf;
+                        }
+                    })
+                    .catch(error => console.log('Erro ao buscar CEP:', error));
+            }
+        });
+        
+        // Auto-format CNPJ
+        const cnpjInput = document.getElementById('cnpj');
+        if (cnpjInput) {
+            cnpjInput.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length <= 14) {
+                    value = value.replace(/^(\d{2})(\d)/, '$1.$2');
+                    value = value.replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3');
+                    value = value.replace(/\.(\d{3})(\d)/, '.$1/$2');
+                    value = value.replace(/(\d{4})(\d)/, '$1-$2');
+                }
+                e.target.value = value;
+            });
+        }
+
+        // Form validation
+        document.getElementById('contratoForm').addEventListener('submit', function(e) {
+            const cpfInput = document.getElementById('cpf');
+            if (!validarCPF(cpfInput.value)) {
+                e.preventDefault();
+                cpfInput.closest('.form-group').classList.add('error');
+                cpfInput.focus();
+                alert('Por favor, insira um CPF válido.');
+                return false;
+            }
+        });
+
+        // Set default date to today
+        const hoje = new Date().toISOString().split('T')[0];
+        document.querySelector('input[name="data_assinatura"]').value = hoje;
+    </script>
+</body>
+</html>
